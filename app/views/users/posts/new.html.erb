@@ -1,0 +1,26 @@
+<br><br>
+<div class="container">
+  <div class="py-5 text-center">
+    <h2>新規投稿</h2>
+  </div>
+  <%= form_with model: @spot, url: users_posts_path, local:true do |f| %>
+    <div class="row">
+      <div class="mr-3">
+        <%= f.radio_button :fishing_spot_id, :海, checked: true %>
+        <%= f.label :海, class: "fishing_spot_id_label" %><br>
+      </div>
+      <div class="mr-3">
+        <%= f.radio_button :fishing_spot_id, :湖 %>
+        <%= f.label :湖, class: "fishing_spot_id_label" %><br>
+      </div>
+      <div class="mr-3">
+        <%= f.radio_button :fishing_spot_id, :川 %>
+        <%= f.label :川, class: "fishing_spot_id_label" %><br>
+      </div>
+      <div class="mr-3">
+        <%= f.radio_button :fishing_spot_id, :その他 %>
+        <%= f.label :その他, class: "fishing_spot_id_label" %><br>
+      </div>
+    </div>
+  <% end %>
+</div>
