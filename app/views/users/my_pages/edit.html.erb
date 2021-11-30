@@ -1,0 +1,40 @@
+<br><br><br><br>
+<div class="container">
+  <h2>マイページ編集</h2>
+  <%= form_with model: @user, url: users_my_page(@user.id), local:true do |f| %>
+    <div class="col">
+      <div class='row'>
+      名前(ニックネーム可)
+        <%= f.text_field :name, class: 'form-control', placeholder: "釣りのすすめ", autofocus: true %>
+      </div>
+    <br>
+
+      <div class='row'>
+        <%= f.label :都道府県 %>
+        <%= f.email_field :prefecture, class: 'form-control', placeholder: "東京都", autofocus: true %>
+      </div><br>
+
+      <div class='row'>
+        <%= f.label :主な釣り場 %>
+        <%= f.email_field :spot, class: 'form-control', placeholder: "堤防", autofocus: true %>
+      </div><br>
+
+      <div class='row'>
+        <%= f.label :自己紹介 %>
+        <%= f.email_field :introduction, class: 'form-control', placeholder: "自己紹介", autofocus: true %>
+      </div><br>
+    </div>
+    <div class="col">
+      <%= f.attachment_field :profile_image %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-4">
+        <%= f.submit "マイページ更新", class: 'btn btn-success btn-sm' %>
+      </div>
+    </div><br>
+  <% end %>
+  <div class="row">
+    <%= link_to "退会する", users_my_page_unsubscribe_path, class: 'btn btn-danger btn-lg'%>
+  </div>
+</div>

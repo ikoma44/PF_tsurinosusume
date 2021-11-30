@@ -1,0 +1,28 @@
+<br><br><br><br>
+<div class="container">
+  <h2>投稿詳細</h2>
+  <div class="row">
+    <div class="col">
+      <%= @user.name %>
+      <%= @user.prefecture %>
+      <%= @user.spot %>
+      <%= @user.introduction %>
+      <%= link_to "編集する", edit_users_my_page_path(@user.id), class: 'btn btn-success btn-lg' %>
+    </div>
+    <div class="col">
+      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <%= post.title %>
+      <%= post.fishing_spot %>
+      <%= post.spot_type %>
+      <%= post.fish %>
+      <%= post.fishing %>
+      <%= post.text %>
+    <% end %>
+  </div>
+</div>

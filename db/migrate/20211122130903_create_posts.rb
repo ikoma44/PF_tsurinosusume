@@ -4,12 +4,11 @@ class CreatePosts < ActiveRecord::Migration[5.2]
 
       t.integer :user_id
       t.integer :spot_id
-      t.integer :fishing_spot_id
-      t.integer :spot_type
+      t.integer :fishing_spot_id, defalut: 3
+      t.integer :spot_type, defalut: 12
       t.string :fish
       t.string :fishing
       t.string :image_id
-      t.string :other_image_id
       t.string :title
       t.string :text
       t.datetime :created_at

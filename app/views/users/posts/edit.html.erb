@@ -1,9 +1,7 @@
-<br><br>
+<br><br><br><br>
 <div class="container">
-  <div class="py-5 text-center">
-    <h2>新規投稿</h2>
-  </div>
-  <%= form_with model: @post, url: users_posts_path, local:true do |f| %>
+  <h2>投稿編集</h2>
+    <%= form_with model: @post, url: users_posts_path(@post.id), local:true do |f| %>
     <h5>釣り場ジャンル</h5>
     <div class="row">
       <div class="mr-3">
@@ -101,7 +99,7 @@
     </div>
     <div class="row">
       <h5>釣果画像その他</h5>
-        <%= f.attachment_field :post_files_other_images, multiple: true %>
+      <%= render partial: "shared/post_form", locals: { post: @post } %>
       <div class="mr-3">
       </div>
     </div>
@@ -118,7 +116,8 @@
       </div>
     </div>
     <div class="text-center">
-      <%= f.submit "新規投稿", class: 'btn btn-success btn-lg' %>
+      <%= f.submit "投稿の編集を完了する", class: 'btn btn-success btn-lg' %>
     </div>
   <% end %>
+  　<%= link_to "投稿を削除する", users_post_path(@post.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger destroy_users_post_#{@post.id}" %>
 </div>

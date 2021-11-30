@@ -1,5 +1,20 @@
 class Post < ApplicationRecord
+
+  belongs_to :user
   has_one :spot
+  has_many :comments
+  has_many :post_files, dependent: :destroy
+  accepts_attachments_for :post_files, attachment: :other_image
+
+  attachment :image_id
+
+  paginates_per 10
+
+  validates :fish, presence: true
+  validates :fishing, presence: true
+  validates :image_id, presence: true
+  validates :title, presence: true
+  validates :text, presence: true
 
   enum fishing_spot_id: {
     海: 0,
@@ -10,7 +25,7 @@ class Post < ApplicationRecord
 
   enum spot_type: {
     河川: 0,
-    湖: 1,
+    #湖: 1,
     池: 2,
     港: 3,
     堤防: 4,
@@ -21,7 +36,7 @@ class Post < ApplicationRecord
     管理釣り場: 9,
     カセ: 10,
     イカダ: 11,
-    その他: 12,
+    #その他: 12,
   }
 
 end

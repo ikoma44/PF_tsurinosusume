@@ -1,0 +1,14 @@
+<br><br><br><br>
+<div class="container">
+  <h2>投稿一覧</h2>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <%= link_to users_post_path(post.id), class: "post_#{post.id}" do %>
+        <p><%= attachment_image_tag post, :image_id, size: "270×200", fallback: "no_image.jpg" %></p>
+      <% end %>
+      <h6><%= link_to post.title, post_path(post.id), class: "post_#{post.id}" %></h6>
+      <p><%= post.text %></p>
+    <% end %>
+    <%= paginate @posts %>
+  </div>
+</div>

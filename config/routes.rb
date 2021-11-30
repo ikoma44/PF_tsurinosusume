@@ -5,10 +5,9 @@ Rails.application.routes.draw do
   get '/' => 'homes#top'
 
   namespace :users do
-    resources :posts do
-      collection do
-        delete 'destroy_all'
-      end
-    end
+    resources :posts
+    resources :my_page, only:[:show, :edit, :update]
+    get '/my_page/unsubscribe' => "my_page#unsubscribe"
+    patch '/my_page/withdraw' => "my_page#withdraw"
   end
 end
