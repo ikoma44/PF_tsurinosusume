@@ -94,14 +94,8 @@
     <!--地図機能-->
 
     <div class="row">
-      <h5>釣果画像</h5>
-      <div class="mr-3">
-        <%= f.attachment_field :image_id %>
-      </div>
-    </div>
-    <div class="row">
-      <h5>釣果画像その他</h5>
-        <%= f.attachment_field :post_files_other_images, multiple: true %>
+      <h5>釣果画像(ShiftまたはCtrlキーを押しながら複数選択ができます)</h5>
+        <%= f.attachment_field :post_files_images, multiple: true %>
       <div class="mr-3">
       </div>
     </div>
@@ -122,3 +116,4 @@
     </div>
   <% end %>
 </div>
+<br><br>

@@ -3,10 +3,9 @@
   <h2>投稿一覧</h2>
   <div class="row">
     <% @posts.each do |post| %>
-      <%= link_to users_post_path(post.id), class: "post_#{post.id}" do %>
-        <p><%= attachment_image_tag post, :image_id, size: "270×200", fallback: "no_image.jpg" %></p>
-      <% end %>
-      <h6><%= link_to post.title, post_path(post.id), class: "post_#{post.id}" %></h6>
+      <%= link_to post.user.name, users_post_path(post.id) %>
+      <p><%= attachment_image_tag @post_file, :post_files_image, size: "270×200", fallback: "" %></p>
+      <h6><%= link_to post.title, users_post_path(post.id) %></h6>
       <p><%= post.text %></p>
     <% end %>
     <%= paginate @posts %>

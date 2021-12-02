@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :posts
-    resources :my_page, only:[:show, :edit, :update]
-    get '/my_page/unsubscribe' => "my_page#unsubscribe"
-    patch '/my_page/withdraw' => "my_page#withdraw"
+    resources :my_pages, only:[:show, :edit, :update]
+    get '/my_pages/unsubscribe' => "my_page#unsubscribe"
+    patch '/my_pages/withdraw' => "my_page#withdraw"
   end
 end

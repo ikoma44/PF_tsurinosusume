@@ -2,7 +2,7 @@ class Users::MyPagesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post = @user.posts
+    #@post = @user.posts
   end
 
   def edit
@@ -19,6 +19,12 @@ class Users::MyPagesController < ApplicationController
   end
 
   def withdraw
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :profile_image, :prefecture,
+    :spot, :introduction, :is_active)
   end
 
 end

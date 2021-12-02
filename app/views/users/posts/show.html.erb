@@ -3,11 +3,11 @@
   <h2>投稿詳細</h2>
   <div class="row">
     <!--% link_to マイページ %-->
-      <%= attachment_iamge_tag @user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 10, 10, fallback: "" %>
       <%= @user.name %>
     <!--% end %-->
     <div class="col">
-      <%= attachment_image_tag @post, :image_id, size: "270×200", fallback: "" %>
+      <p><%= attachment_image_tag @post_file, :post_files_image, size: "270×200", fallback: "" %>
     </div>
     <div class="col">
       <!--地図-->
@@ -23,13 +23,16 @@
   </div>
 </div>
 <div class="container col">
-  <%= @post.fishing_spot_id %>
-  <%= @post.spot_type %>
-  <%= @post.fishing %>
-  <%= @post.fish %>
+  <div class="text-center">
+    <%= @post.fishing_spot_id %>
+    <%= @post.spot_type %>
+    <%= @post.fishing %>
+    <%= @post.fish %>
+  </div>
 </div>
 <div class="container col">
   <div class="text-center">
-    <%= link_to "編集する", edit_users_post_path(post.id), class: 'btn btn-success btn-lg' %>
+    <%= link_to "編集する", edit_users_post_path(@post.id), class: 'btn btn-success btn-lg' %>
   </div>
 </div>
+<br><br>

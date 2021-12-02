@@ -4,15 +4,12 @@ class Post < ApplicationRecord
   has_one :spot
   has_many :comments
   has_many :post_files, dependent: :destroy
-  accepts_attachments_for :post_files, attachment: :other_image
-
-  attachment :image_id
+  accepts_attachments_for :post_files, attachment: :image
 
   paginates_per 10
 
   validates :fish, presence: true
   validates :fishing, presence: true
-  validates :image_id, presence: true
   validates :title, presence: true
   validates :text, presence: true
 

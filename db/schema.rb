@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_131157) do
 
   create_table "post_files", force: :cascade do |t|
     t.integer "post_id"
-    t.string "other_image_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2021_11_28_131157) do
     t.integer "spot_type"
     t.string "fish"
     t.string "fishing"
-    t.string "image_id"
     t.string "title"
     t.string "text"
     t.datetime "created_at", null: false

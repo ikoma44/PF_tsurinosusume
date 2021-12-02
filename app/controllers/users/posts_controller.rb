@@ -3,6 +3,7 @@ class Users::PostsController < ApplicationController
   def index
     @posts = Post.all
     @posts = Post.page(params[:page]).per(10)
+    @post_files = PostFile.all
   end
 
   def show
@@ -18,7 +19,7 @@ class Users::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      #redirect_to users_post_path(@post.id)
+      redirect_to users_post_path(@post.id)
     else
       render :new
     end
@@ -30,8 +31,8 @@ class Users::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    post.update(post_params)
-    #redirect_to users_post_path(@post.id)
+    @post.update(post_params)
+    redirect_to users_post_path(@post.id)
   end
 
   def destroy
@@ -43,7 +44,7 @@ class Users::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:fishing_spot_id, :spot_type, :fish,
-    :fishing, :image_id, :title, :text, post_files_other_image: [])
+    :fishing, :title, :text, post_files_images: []).merge(user_id:current_user.id)
   end
 
 end
